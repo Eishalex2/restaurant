@@ -1,13 +1,6 @@
-import './style.css';
+// import './style.css';
+import pageLoad from "./load";
 
-function component() {
-  const element = document.createElement('div');
+pageLoad();
 
-  // Lodash, now imported by this script
-  element.textContent = "Hello world!";
-  element.classList.add('hello');
-
-  return element;
-}
-
-document.body.appendChild(component());
+document.body.appendChild(pageLoad());
