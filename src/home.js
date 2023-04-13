@@ -17,13 +17,13 @@ function createDescription() {
 }
 
 function loadHome() {
-  const homeComponent = document.createElement('div');
-  homeComponent.classList.add('home');
+  const homeTab = document.getElementById('tab-content');
+  homeTab.textContent = "";
 
-  homeComponent.appendChild(createImage());
-  homeComponent.appendChild(createDescription());
+  homeTab.appendChild(createImage());
+  homeTab.appendChild(createDescription());
 
-  return homeComponent;
+  return homeTab;
 }
 
-export default loadHome   ;
+export default loadHome;
