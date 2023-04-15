@@ -5,6 +5,7 @@
 // to "disable" the tab you're currently on.
 
 import loadHome from "./home";
+import loadMenu from "./menu";
 import loadContact from "./contact";
 
 function createHeadline() {
@@ -14,21 +15,46 @@ function createHeadline() {
   return name;
 }
 
+function makeActive(button) {
+  const tabBtns = document.querySelectorAll("tab-buttons");
+
+  tabBtns.forEach((btn) => {
+    if (btn !== button) {
+      btn.classList.remove("active");
+    }
+  });
+
+  button.classList.add("active");
+}
+
 function createNav() {
   const nav = document.createElement('nav');
 
   const homeBtn = document.createElement('button');
+  homeBtn.classList.add("tab-buttons");
   homeBtn.textContent = "Home";
-  homeBtn.addEventListener('click', loadHome)
+  homeBtn.addEventListener('click', (e) => {
+    makeActive(e.target);
+    loadHome();
+  })
   nav.appendChild(homeBtn);
 
   const menuBtn = document.createElement('button');
+  menuBtn.classList.add("tab-buttons");
   menuBtn.textContent = "Menu";
+  menuBtn.addEventListener("click", (e) => {
+    makeActive(e.target);
+    loadMenu();
+  });
   nav.appendChild(menuBtn);
 
   const contactBtn = document.createElement('button');
+  contactBtn.classList.add("tab-buttons");
   contactBtn.textContent = "Contact";
-  contactBtn.addEventListener('click', loadContact);
+  contactBtn.addEventListener('click', (e) => {
+    makeActive(e.target);
+    loadContact();
+  });
   nav.appendChild(contactBtn);
 
   return nav;
