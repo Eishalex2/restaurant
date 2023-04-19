@@ -35,8 +35,8 @@ function createNav() {
   const homeBtn = document.createElement('button');
   homeBtn.classList.add("tab-buttons");
   homeBtn.textContent = "Home";
-  homeBtn.addEventListener('click', () => {
-    makeActive(homeBtn);
+  homeBtn.addEventListener('click', (e) => {
+    makeActive(e.target);
     loadHome();
   })
   nav.appendChild(homeBtn);
