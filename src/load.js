@@ -34,6 +34,7 @@ function createNav() {
 
   const homeBtn = document.createElement('button');
   homeBtn.classList.add("tab-buttons");
+  homeBtn.classList.add("active");
   homeBtn.textContent = "Home";
   homeBtn.addEventListener('click', (e) => {
     makeActive(e.target);
