@@ -16,9 +16,11 @@ function createHeadline() {
 }
 
 function makeActive(button) {
-  const tabBtns = document.querySelectorAll("tab-buttons");
+  const tabBtns = document.getElementsByClassName("tab-buttons");
 
-  tabBtns.forEach((btn) => {
+  const tabBtnsArray = [...tabBtns];
+
+  tabBtnsArray.forEach((btn) => {
     if (btn !== button) {
       btn.classList.remove("active");
     }
@@ -33,8 +35,8 @@ function createNav() {
   const homeBtn = document.createElement('button');
   homeBtn.classList.add("tab-buttons");
   homeBtn.textContent = "Home";
-  homeBtn.addEventListener('click', (e) => {
-    makeActive(e.target);
+  homeBtn.addEventListener('click', () => {
+    makeActive(homeBtn);
     loadHome();
   })
   nav.appendChild(homeBtn);
